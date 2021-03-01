@@ -4,7 +4,7 @@ async function CreateTableFromJSON() {
         let tables = document.getElementsByTagName("table");
         console.log(tables)
         for (item of tables) { 
-            console.log(item); 
+            console.log("item is  : " + item); 
             item.remove();
         } 
       
