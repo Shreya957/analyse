@@ -1,6 +1,6 @@
-async function CreateTableFromJSON() {
+async function CreateTableFromJSON() {    
     try {
-
+        document.getElementById("load").style.display = "inline";
         let tables = document.getElementsByTagName("table");
         console.log(tables)
         for (item of tables) { 
@@ -144,6 +144,8 @@ async function CreateTableFromJSON() {
         }
 
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        
+        document.getElementById("load").style.display = "none";
         var divContainer = document.getElementById("showData");
 
         divContainer.appendChild(table);
