@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    textarea {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .main {
+      padding: 20px;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    p.solid {
+      border-style: solid;
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div id="showData" class="main container-fluid">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;margin-bottom: 20px;">
+      <a class="navbar-brand" href="#">
+        <img src="pwc.svg" width="30" height="30" class="d-inline-block align-top " alt="">
+        PwC NLP Classifier
+      </a>
+    </nav>
+    <!-- <label for="w3review"><b>Input Text : </b></label> -->
+    <textarea id="w3review" name="w3review" rows="7" cols="100" placeholder="Write your text to analyze"></textarea>
+    <button type="button" value="Analyse" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px;"
+      onclick="CreateTableFromJSON()">Investigate!!</button>
+      <div id="card" class="card mb-3" style="max-width: 540px;display: none">
+        <div class="row no-gutters">
+          <div class="col-md-4" style="align-self: center;">
+            <img id='moodImage' src="smile.png" class="card-img"  alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div id="mood" class="alert alert-primary" role="alert">
+              </div>
+              <!-- <div id="moodDetails" class="alert alert-info" role="alert">
+              </div> -->
+          </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- <div id="card" class="card" style="width: 10rem;display: none">
+      <img id='moodImage' class="card-img-top" src="smile.png" width="20%" alt="Card image cap">
+      <div class="card-body">
+        <div id="mood" class="alert alert-primary" role="alert">
+        </div>
+        <div id="moodDetails" class="alert alert-info" role="alert">
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <!-- <div id="showData"></div> -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="awsComp.js"></script>
+</body>
+
+</html>
