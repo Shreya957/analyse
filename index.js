@@ -55,5 +55,7 @@ const detectPii = new DetectPiiEntitiesCommand(
   console.log(analyze)
   res.send(analyze);
 })
+
+const port = process.env.port || 8000;
 console.log("Server Started")
-app.listen(8000)
+app.listen(port)
