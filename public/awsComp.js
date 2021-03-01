@@ -32,12 +32,18 @@ async function CreateTableFromJSON() {
         //let pii = response.pii;
         // Modify array based on incident tickets
         myBooks.forEach(function(obj) {
-            if (obj.Text.startsWith("INF")) {
+            if (obj.Text.startsWith("INF") || obj.Text.startsWith("IND")) {
                 obj.Type = 'INCIDENT';
                 // Or: `obj.baz = [11, 22, 33];`
             }
             if (obj.Text.includes("Whirlpool")) {
-                obj.Type = 'ORGANISATION';
+                obj.Type = 'ORGANIZATION';
+                // Or: `obj.baz = [11, 22, 33];`
+            }
+             console.log(typeof(obj.Text))
+             var pattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im ;
+            if (pattern.test(obj.Text) && obj.Type == "OTHER") {
+                obj.Type = 'PHONE NUMBER';
                 // Or: `obj.baz = [11, 22, 33];`
             }
         });
@@ -79,6 +85,11 @@ async function CreateTableFromJSON() {
         for (var i = 3; i < 5; i++) {
             var th = document.createElement("th");      // TABLE HEADER.
             th.innerHTML = col[i];
+            if (i == 3) {
+                th.innerHTML = "Entity";
+            } else if (i == 4) {
+                th.innerHTML = "Type";
+            }  // TABLE HEADER.
             tr.appendChild(th);
         }
 
@@ -93,15 +104,6 @@ async function CreateTableFromJSON() {
             }
         }
 
-        // for (var i = 0; i < pii.length; i++) {
-
-        //     tr = table.insertRow(-1);
-
-        //     for (var j = 3; j < 5; j++) {
-        //         var tabCell = tr.insertCell(-1);
-        //         tabCell.innerHTML = pii[i][col[j]];              
-        //     }
-        // }
         //////////////////////////////////////////////////////////
 
         for (var i = 0; i < keyPhrases.length; i++) {
@@ -145,7 +147,7 @@ async function CreateTableFromJSON() {
         var divContainer = document.getElementById("showData");
 
         divContainer.appendChild(table);
-        divContainer.appendChild(table1);
+        //divContainer.appendChild(table1);
 
     });
 
