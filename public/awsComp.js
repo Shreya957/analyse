@@ -5,7 +5,7 @@ async function CreateTableFromJSON() {
         console.log(tables)
         for (item of tables) { 
             console.log(item); 
-           // item.remove();
+            item.remove();
         } 
       
     } catch (err) {
