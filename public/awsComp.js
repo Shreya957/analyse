@@ -14,7 +14,7 @@ async function CreateTableFromJSON() {
     }
     let entities = '';
     var settings = {
-        "url": " http://localhost:8000/analyze",
+        "url": " /analyze",
         "method": "POST",
         "timeout": 0,
         "headers": {
